@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhinoceros Emperor Game - Slitherlink Edition</title>
+    <link rel="stylesheet" href="R2_style.css">
+</head>
+<body>
+
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="nebula"></div>
+    </div>
+
+    <div class="app-window">
+        <!-- Header Panel with Title and Mode Toggles -->
+        <div class="app-header">
+            <div class="level-title-badge">
+                <span class="rhino-icon">🦏</span>
+                <span id="header-level-title">Level 1: Gate of Wu Nation</span>
+            </div>
+            <div class="mode-toggles">
+                <button id="mode-puzzle" class="mode-btn active" onclick="switchGameMode('puzzle')">Puzzle Mode</button>
+                <button id="mode-duel" class="mode-btn" onclick="switchGameMode('duel')">Rhino Duel</button>
+            </div>
+        </div>
+
+        <!-- Metric Scoreboard Row -->
+        <div class="scoreboard-row">
+            <div class="metric-card">
+                <div class="metric-label">Completion</div>
+                <div id="metric-completion" class="metric-value text-blue">0%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Status</div>
+                <div id="metric-status" class="metric-value text-orange">In Progress</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Target</div>
+                <div class="metric-value text-white">Close Loop</div>
+            </div>
+        </div>
+
+        <!-- Interactive Vector Arena Board -->
+        <div class="arena-outer-container">
+            <div id="arena-grid" class="arena-grid"></div>
+        </div>
+
+        <!-- Footer Control Console Configuration -->
+        <div class="console-footer">
+            <div class="selector-wrapper">
+                <label for="campaign-select" class="select-label">Select Campaign Level (1 - 12)</label>
+                <select id="campaign-select" onchange="handleLevelSelectionChange()">
+                    <option value="1">Level 1: Gate of Wu Nation</option>
+                    <option value="2">Level 2: Mental Awakening</option>
+                    <option value="3">Level 3: Phantom Steps</option>
+                    <option value="4">Level 4: River Crossing</option>
+                    <option value="5">Level 5: Heavy Stampede</option>
+                    <option value="6">Level 6: Divine Micro-Structure</option>
+                    <option value="7">Level 7: Spatial Rift</option>
+                    <option value="8">Level 8: Universe Core</option>
+                    <option value="9">Level 9: Soul Attack Trial</option>
+                    <option value="10">Level 10: Ancient Inscription</option>
+                    <option value="11">Level 11: Quantum Loop</option>
+                    <option value="12">Level 12: God King Inheritance</option>
+                </select>
+            </div>
+            
+            <div class="action-buttons-group">
+                <button class="control-btn clear-btn" onclick="clearActiveArenaBoard()">🔄 Clear Board</button>
+                <button class="control-btn hint-btn" onclick="evaluateAndVerifyLoop()">✨ Verify Comprehension</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="R2_script.js"></script>
+</body>
+</html>

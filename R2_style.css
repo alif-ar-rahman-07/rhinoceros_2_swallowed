@@ -1,0 +1,251 @@
+:root {
+    --bg-dark: #0f111a;
+    --app-bg: #1a1d29;
+    --card-bg: #222636;
+    --text-muted: #8e95ad;
+    --blue-accent: #38761d;
+    --blue-glow: #00f0ff;
+    --orange-accent: #f59e0b;
+    --border-line: #2d324d;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* 🌌 Dark Starfield Matrix Ambient Effects */
+.space-background {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at center, #111625 0%, #06080f 100%);
+}
+
+.app-window {
+    background-color: var(--app-bg);
+    border: 1px solid #262a3d;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 580px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.level-title-badge {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mode-toggles {
+    background-color: #11131c;
+    padding: 4px;
+    border-radius: 8px;
+    display: flex;
+}
+
+.mode-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mode-btn.active {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+}
+
+.scoreboard-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.metric-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+.metric-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.text-blue { color: #38bdf8; }
+.text-orange { color: var(--orange-accent); }
+.text-white { color: #ffffff; }
+.text-green { color: #10b981; }
+
+/* 🎛️ SLITHERLINK DOT & EDGE ARENA ENGINE */
+.arena-outer-container {
+    background-color: #11131c;
+    border: 1px solid var(--border-line);
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    user-select: none;
+}
+
+.arena-grid {
+    position: relative;
+    display: grid;
+}
+
+.grid-cell-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Clickable vector edge line segments mapping elements */
+.edge-trigger {
+    position: absolute;
+    background-color: #232736;
+    cursor: pointer;
+    transition: all 0.15s;
+    z-index: 5;
+}
+
+.edge-trigger:hover {
+    background-color: #434b66;
+}
+
+.edge-trigger.active {
+    background-color: #2563eb;
+    box-shadow: 0 0 8px var(--blue-glow);
+}
+
+.edge-trigger.horizontal {
+    height: 4px;
+    width: 80px;
+    left: 0;
+}
+
+.edge-trigger.horizontal.top { top: -2px; }
+.edge-trigger.horizontal.bottom { bottom: -2px; }
+
+.edge-trigger.vertical {
+    width: 4px;
+    height: 80px;
+    top: 0;
+}
+
+.edge-trigger.vertical.left { left: -2px; }
+.edge-trigger.vertical.right { right: -2px; }
+
+/* Vertex Intersection Points Tracking Indicators */
+.vertex-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #64748b;
+    border-radius: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+.console-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.select-label {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+select {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    color: #ffffff;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.action-buttons-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.control-btn {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.clear-btn {
+    background-color: #2d3142;
+    color: #ffffff;
+}
+
+.clear-btn:hover { background-color: #3d435c; }
+
+.hint-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.hint-btn:hover { background-color: #3b82f6; }
